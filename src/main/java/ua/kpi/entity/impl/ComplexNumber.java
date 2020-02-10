@@ -1,6 +1,5 @@
 package ua.kpi.entity.impl;
 
-import lombok.*;
 import ua.kpi.entity.NumberInterface;
 
 import java.math.BigDecimal;

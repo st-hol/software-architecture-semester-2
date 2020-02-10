@@ -33,11 +33,8 @@ class ConstructorInvocationTest {
     public void shouldPrintToString() throws IOException {
         String result = new ComplexNumberWithExp(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.TEN)
                 .toString();
-        System.out.println(result);
-        bo.flush();
-        String allWrittenLines = new String(bo.toByteArray());
-        assertTrue(allWrittenLines.contains("0"));
-        assertTrue(allWrittenLines.contains("1"));
-        assertTrue(allWrittenLines.contains("10"));
+        assertTrue(result.contains("0"));
+        assertTrue(result.contains("1"));
+        assertTrue(result.contains("10"));
     }
 }
