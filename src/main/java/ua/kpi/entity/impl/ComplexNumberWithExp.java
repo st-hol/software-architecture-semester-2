@@ -28,8 +28,8 @@ public class ComplexNumberWithExp extends ComplexNumber {
     public String toString() {
         return "ComplexNumberWithExp{" +
                 "fi=" + fi +
-                ", aCoefficient=" + aCoefficient +
-                ", bCoefficient=" + bCoefficient +
+                ", aCoefficient=" + r +
+                ", bCoefficient=" + i +
                 '}';
     }
 }
