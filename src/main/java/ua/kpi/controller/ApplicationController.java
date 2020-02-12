@@ -1,18 +1,15 @@
 package ua.kpi.controller;
 
-import ua.kpi.ui.util.ApplicationView;
-import ua.kpi.ui.util.InputProvider;
+import ua.kpi.facade.CalculationFacade;
 
 
 public class ApplicationController {
 
     private static ApplicationController instance;
-    private ApplicationView applicationView;
-    private InputProvider inputProvider;
+    private CalculationFacade calculationFacade;
 
     private ApplicationController() {
-        this.applicationView = ApplicationView.getInstance();
-        this.inputProvider = InputProvider.getInstance();
+        calculationFacade = CalculationFacade.getInstance();
     }
 
     public static ApplicationController getInstance() {
@@ -26,12 +23,20 @@ public class ApplicationController {
         return instance;
     }
 
-    public void printLine(String str) {
-        applicationView.printLine(str);
+    public void processActionControl(){
+
     }
 
-    public int readOrQuit() {
-        return inputProvider.readOrQuit();
+    public void processAbsOperation(){
+
+    }
+
+    public void processAddOperation(){
+
+    }
+
+    public void processMultiplyOperation(){
+
     }
 
 }
