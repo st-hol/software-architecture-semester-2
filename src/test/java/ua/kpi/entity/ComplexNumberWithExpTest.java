@@ -2,6 +2,7 @@ package ua.kpi.entity;
 
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ua.kpi.entity.impl.ComplexNumberWithExp;
 import ua.kpi.meta.MethodAnnotation;
@@ -27,13 +28,16 @@ class ComplexNumberWithExpTest {
      * look at console :)
      */
     @Test
-    public void task1_shouldShowConstructorsInvokingOrder() {
+    @SuppressWarnings("squid:S2699")
+    @DisplayName("task1")
+    public void shouldShowConstructorsInvokingOrder() {
         createComplexNumberWithExp();
     }
 
     @Test
     @SneakyThrows
-    public void task2_shouldInvokeAnnotatedMethods() {
+    @DisplayName("task2")
+    public void shouldInvokeAnnotatedMethods() {
         Method[] methods = complexNumberWithExp.getClass().getDeclaredMethods();
         for (Method method : methods) {
             Annotation[] annotations = method.getDeclaredAnnotations();
@@ -52,7 +56,9 @@ class ComplexNumberWithExpTest {
     }
 
     @Test
-    void task3_shouldDisplayClassInfo() {
+    @SuppressWarnings("squid:S2699")
+    @DisplayName("task3")
+    void shouldDisplayClassInfo() {
         System.out.println("\n\n\n");
 
         Package pack = complexNumberWithExp.getClass().getPackage();

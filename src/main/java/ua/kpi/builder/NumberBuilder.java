@@ -21,13 +21,11 @@ public class NumberBuilder {
     public NumberBuilder setR(BigDecimal r) {
         this.r = r;
         return this;
-
     }
 
     public NumberBuilder setI(BigDecimal i) {
         this.i = i;
         return this;
-
     }
 
     public NumberBuilder setNumberListBuilder(NumberListBuilder numberListBuilder) {
