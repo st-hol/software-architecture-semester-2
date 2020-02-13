@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 @Log4j2
-public class Main {
+public class ProxyTaskMain {
     public static void main(String[] args) {
         InvocationHandler noSetterProxyHandler = new NoSetterProxy(new ComplexNumber());
         Class[] classes = new Class[]{NumberInterface.class};

@@ -57,7 +57,7 @@ public class InputProvider {
             if (foundValue.isPresent()) {
                 return (E) foundValue.get();
             } else {
-                log.error("You entered invalid value! Try again:");
+                log.debug("You entered invalid value! Try again:");
             }
         }
     }

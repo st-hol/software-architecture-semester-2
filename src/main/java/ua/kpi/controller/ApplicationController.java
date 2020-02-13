@@ -1,15 +1,25 @@
 package ua.kpi.controller;
 
-import ua.kpi.facade.CalculationFacade;
+import java.util.HashMap;
+import java.util.Map;
+
+import ua.kpi.command.Command;
+import ua.kpi.command.operations.AbsCommand;
+import ua.kpi.command.operations.AddCommand;
+import ua.kpi.command.operations.MultiplyCommand;
+import ua.kpi.facade.ApplicationFacade;
+import ua.kpi.type.ActionCode;
 
 
 public class ApplicationController {
 
+    private Map<ActionCode, Command> commands = new HashMap<>();
+
     private static ApplicationController instance;
-    private CalculationFacade calculationFacade;
+    private ApplicationFacade applicationFacade;
 
     private ApplicationController() {
-        calculationFacade = CalculationFacade.getInstance();
+        applicationFacade = ApplicationFacade.getInstance();
     }
 
     public static ApplicationController getInstance() {
@@ -23,20 +33,27 @@ public class ApplicationController {
         return instance;
     }
 
+    private void initCommands(){
+        commands.put(ActionCode.ABS, new AbsCommand());
+        commands.put(ActionCode.ADD, new AddCommand());
+        commands.put(ActionCode.MUL, new MultiplyCommand());
+    }
+
     public void processActionControl(){
-
+        initCommands();
+        applicationFacade.process(commands);
     }
 
-    public void processAbsOperation(){
-
-    }
-
-    public void processAddOperation(){
-
-    }
-
-    public void processMultiplyOperation(){
-
-    }
+//    public void processAbsOperation(){
+//
+//    }
+//
+//    public void processAddOperation(){
+//
+//    }
+//
+//    public void processMultiplyOperation(){
+//
+//    }
 
 }

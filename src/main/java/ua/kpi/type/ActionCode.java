@@ -4,9 +4,10 @@ import java.util.stream.Stream;
 
 public enum ActionCode implements StringTypeEnum {
 
-    UA("UA"),
-    EN("EN");
-
+    ABS("ABS"),
+    ADD("ADD"),
+    MUL("MUL"),
+    EXIT("EXIT");
 
     private final String value;
 
@@ -21,7 +22,7 @@ public enum ActionCode implements StringTypeEnum {
      * @return
      */
     public static ActionCode fromValue(String value) {
-        return Stream.of(values()).filter(v -> v.getValue().equals(value)).findFirst().orElse(EN);
+        return Stream.of(values()).filter(v -> v.getValue().equals(value)).findFirst().orElse(null);
     }
 
     @Override

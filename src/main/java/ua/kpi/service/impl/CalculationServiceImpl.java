@@ -2,6 +2,8 @@ package ua.kpi.service.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
 
 import ua.kpi.controller.ApplicationController;
 import ua.kpi.entity.impl.ComplexNumber;
@@ -15,6 +17,7 @@ public class CalculationServiceImpl implements CalculationService {
     private static final String NEGATIVE_VALUE_FOR_SQRT = "NEGATIVE_VALUE_FOR_SQRT";
 
     private static CalculationServiceImpl instance;
+
 
     private CalculationServiceImpl() {
 
