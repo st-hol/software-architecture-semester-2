@@ -7,6 +7,8 @@ import ua.kpi.flyweight.OperationRequest;
 public class AddCommand extends Command {
     @Override
     public ComplexNumber execute(OperationRequest req) {
-        return null;
+        ComplexNumber firstOperand = req.getArgs().get(0);
+        ComplexNumber secondOperand = req.getArgs().get(1);
+        return calculationService.add(firstOperand, secondOperand);
     }
 }

@@ -2,10 +2,7 @@ package ua.kpi.service.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.List;
 
-import ua.kpi.controller.ApplicationController;
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.exception.CalculationException;
 import ua.kpi.service.CalculationService;
@@ -40,10 +37,10 @@ public class CalculationServiceImpl implements CalculationService {
     }
 
     @Override
-    public BigDecimal abs(ComplexNumber original) throws CalculationException {
-        BigDecimal x = pow(original.getR(), 2).add(pow(original.getI(), 2));
-        x = sqrt(x);
-        return x.setScale(SCALE_FOR_RESULT, RoundingMode.HALF_UP);
+    public ComplexNumber abs(ComplexNumber original) throws CalculationException {
+        BigDecimal x = sqrt(pow(original.getR(), 2).add(pow(original.getI(), 2)));
+        BigDecimal y = sqrt(pow(original.getR(), 2).add(pow(original.getI(), 2)));
+        return new ComplexNumber(x, y);
     }
 
     @Override
