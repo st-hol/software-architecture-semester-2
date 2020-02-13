@@ -4,15 +4,17 @@ import java.util.stream.Stream;
 
 public enum ActionCode implements StringTypeEnum {
 
-    ABS("ABS"),
-    ADD("ADD"),
-    MUL("MUL"),
-    EXIT("EXIT");
+    ABS("ABS", 1),
+    ADD("ADD", 2),
+    MUL("MUL", 2),
+    EXIT("EXIT", 0);
 
     private final String value;
+    private final int noOfOperands;
 
-    ActionCode(String value) {
+    ActionCode(String value, int noOfOperands) {
         this.value = value;
+        this.noOfOperands = noOfOperands;
     }
 
     /**
@@ -28,6 +30,10 @@ public enum ActionCode implements StringTypeEnum {
     @Override
     public String getValue() {
         return value;
+    }
+
+    public int getNoOfOperands() {
+        return noOfOperands;
     }
 
     @Override

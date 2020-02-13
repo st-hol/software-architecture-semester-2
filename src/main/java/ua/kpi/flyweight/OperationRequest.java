@@ -1,9 +1,11 @@
 package ua.kpi.flyweight;
 
-import lombok.Data;
-import ua.kpi.type.ActionCode;
+import java.util.List;
+
+import ua.kpi.entity.impl.ComplexNumber;
 
 public interface OperationRequest {
 
+    List<ComplexNumber> getArgs();
 
 }

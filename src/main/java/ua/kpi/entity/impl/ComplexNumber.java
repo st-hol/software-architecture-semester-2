@@ -1,9 +1,9 @@
 package ua.kpi.entity.impl;
 
+import java.math.BigDecimal;
+
 import lombok.Data;
 import ua.kpi.entity.NumberInterface;
-
-import java.math.BigDecimal;
 
 @Data
 public class ComplexNumber implements NumberInterface {
@@ -25,4 +25,11 @@ public class ComplexNumber implements NumberInterface {
         this.i = i;
     }
 
+    @Override
+    public String toString() {
+        return "ComplexNumber{" +
+                "r=" + r +
+                ", i=" + i +
+                '}';
+    }
 }

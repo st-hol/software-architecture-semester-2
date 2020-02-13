@@ -1,14 +1,21 @@
 package ua.kpi.flyweight;
 
-import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
 
 import lombok.Data;
+import ua.kpi.entity.impl.ComplexNumber;
 
 @Data
 public class SingleOperandRequest implements OperationRequest {
-    private BigDecimal operand;
+    private ComplexNumber operand;
 
-    public SingleOperandRequest(BigDecimal operand) {
+    public SingleOperandRequest(ComplexNumber operand) {
         this.operand = operand;
+    }
+
+    @Override
+    public List<ComplexNumber> getArgs() {
+        return Collections.singletonList(operand);
     }
 }

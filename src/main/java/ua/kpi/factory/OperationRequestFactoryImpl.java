@@ -1,10 +1,9 @@
 package ua.kpi.factory;
 
-import java.math.BigDecimal;
 import java.util.List;
 
-
 import lombok.extern.log4j.Log4j2;
+import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.exception.UnrecognizedRequestException;
 import ua.kpi.flyweight.OperationRequest;
 import ua.kpi.flyweight.SingleOperandRequest;
@@ -14,13 +13,13 @@ import ua.kpi.flyweight.TwoOperandRequest;
 public class OperationRequestFactoryImpl extends OperationRequestFactory {
     private static final String NOT_EXIST_MESSAGE = "There are no request for your args";
 
-    public OperationRequest makeRequest(List<BigDecimal> params) {
+    public OperationRequest makeRequest(List<ComplexNumber> params) {
         OperationRequest request = makeFromParams(params);
         log.info("Factory: Preparing " + request.toString());
         return request;
     }
 
-    private OperationRequest makeFromParams(List<BigDecimal> params) {
+    private OperationRequest makeFromParams(List<ComplexNumber> params) {
         int nArgs = params.size();
         switch (nArgs) {
             case 1:

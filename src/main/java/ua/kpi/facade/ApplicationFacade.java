@@ -5,19 +5,19 @@ import static ua.kpi.ui.TextConstants.RESULT;
 import static ua.kpi.ui.TextConstants.SHOW_OPTION;
 import static ua.kpi.ui.TextConstants.WELCOME;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
 import ua.kpi.command.Command;
 import ua.kpi.command.operations.ExitCommand;
+import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.factory.OperationRequestFactory;
 import ua.kpi.factory.OperationRequestFactoryImpl;
+import ua.kpi.flyweight.OperationRequest;
 import ua.kpi.service.ApplicationService;
 import ua.kpi.service.CalculationService;
 import ua.kpi.service.impl.ApplicationServiceImpl;
 import ua.kpi.service.impl.CalculationServiceImpl;
-import ua.kpi.flyweight.OperationRequest;
 import ua.kpi.type.ActionCode;
 import ua.kpi.ui.util.ApplicationView;
 import ua.kpi.ui.util.InputProvider;
@@ -62,9 +62,9 @@ public class ApplicationFacade {
                 break;
             }
             //readParams
-            List<BigDecimal> params ;
+            List<ComplexNumber> params = inputProvider.readParams(actionCode.getNoOfOperands());
             OperationRequest request = operationRequestFactory.assembleRequest(params);
-            BigDecimal result = command.execute(request);
+            ComplexNumber result = command.execute(request);
 
             printLine(RESULT + result.toString());
         }

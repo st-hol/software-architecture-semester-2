@@ -1,10 +1,13 @@
 package ua.kpi.command;
 
-import java.math.BigDecimal;
-
+import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.flyweight.OperationRequest;
+import ua.kpi.service.CalculationService;
+import ua.kpi.service.impl.CalculationServiceImpl;
 
 
-public interface Command {
-    BigDecimal execute(OperationRequest req);
+public abstract class Command {
+    protected CalculationService calculationService = CalculationServiceImpl.getInstance();
+
+    public abstract ComplexNumber execute(OperationRequest req);
 }

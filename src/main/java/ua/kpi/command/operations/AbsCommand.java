@@ -1,14 +1,15 @@
 package ua.kpi.command.operations;
 
-import java.math.BigDecimal;
-
 import ua.kpi.command.Command;
+import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.flyweight.OperationRequest;
-import ua.kpi.type.ActionCode;
 
-public class AbsCommand implements Command {
+public class AbsCommand extends Command {
+
     @Override
-    public BigDecimal execute(OperationRequest req) {
+    public ComplexNumber execute(OperationRequest req) {
+        ComplexNumber operand = req.getArgs().get(0);
+//        calculationService.abs(new NumberBuilder().)
         return null;
     }
 }

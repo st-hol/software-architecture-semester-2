@@ -1,13 +1,12 @@
 package ua.kpi.command.operations;
 
-import java.math.BigDecimal;
-
 import ua.kpi.command.Command;
+import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.flyweight.OperationRequest;
 
-public class ExitCommand implements Command {
+public class ExitCommand extends Command {
     @Override
-    public BigDecimal execute(OperationRequest req) {
+    public ComplexNumber execute(OperationRequest req) {
         return null;
     }
 }

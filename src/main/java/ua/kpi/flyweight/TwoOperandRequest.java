@@ -1,18 +1,23 @@
 package ua.kpi.flyweight;
 
-import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
 import lombok.Data;
-import ua.kpi.type.ActionCode;
+import ua.kpi.entity.impl.ComplexNumber;
 
 @Data
 public class TwoOperandRequest implements OperationRequest {
-    private BigDecimal firstOperand;
-    private BigDecimal secondOperand;
+    private ComplexNumber firstOperand;
+    private ComplexNumber secondOperand;
 
-    public TwoOperandRequest(BigDecimal firstOperand, BigDecimal secondOperand) {
+    public TwoOperandRequest(ComplexNumber firstOperand, ComplexNumber secondOperand) {
         this.firstOperand = firstOperand;
         this.secondOperand = secondOperand;
     }
 
+    @Override
+    public List<ComplexNumber> getArgs() {
+        return Arrays.asList(firstOperand, secondOperand);
+    }
 }

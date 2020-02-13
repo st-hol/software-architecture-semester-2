@@ -1,6 +1,6 @@
 package ua.kpi.controller;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 import ua.kpi.command.Command;
@@ -13,7 +13,7 @@ import ua.kpi.type.ActionCode;
 
 public class ApplicationController {
 
-    private Map<ActionCode, Command> commands = new HashMap<>();
+    private Map<ActionCode, Command> commands = new EnumMap<>(ActionCode.class);
 
     private static ApplicationController instance;
     private ApplicationFacade applicationFacade;
@@ -43,17 +43,5 @@ public class ApplicationController {
         initCommands();
         applicationFacade.process(commands);
     }
-
-//    public void processAbsOperation(){
-//
-//    }
-//
-//    public void processAddOperation(){
-//
-//    }
-//
-//    public void processMultiplyOperation(){
-//
-//    }
 
 }
