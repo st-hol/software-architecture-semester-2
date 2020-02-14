@@ -44,4 +44,11 @@ public class ApplicationController {
         applicationFacade.process(commands);
     }
 
+    public Map<ActionCode, Command> getCommands() {
+        return commands;
+    }
+
+    public void setApplicationFacade(ApplicationFacade applicationFacade) {
+        this.applicationFacade = applicationFacade;
+    }
 }
