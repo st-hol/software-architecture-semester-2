@@ -2,6 +2,7 @@ package ua.kpi.command.operations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -34,6 +35,7 @@ class AbsCommandTest {
         when(calculationService.abs(any(ComplexNumber.class)))
                 .thenReturn(expected);
         ComplexNumber actual = underTest.execute(new SingleOperandRequest(new ComplexNumber()));
+        verify(calculationService).abs(any(ComplexNumber.class));
         assertEquals(expected, actual);
     }
 
