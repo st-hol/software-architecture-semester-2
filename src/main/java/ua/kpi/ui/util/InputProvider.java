@@ -1,35 +1,25 @@
 package ua.kpi.ui.util;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import ua.kpi.entity.impl.ComplexNumber;
+import ua.kpi.type.TypeEnum;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-import lombok.extern.log4j.Log4j2;
-import ua.kpi.entity.impl.ComplexNumber;
-import ua.kpi.type.TypeEnum;
-
 @Log4j2
+@NoArgsConstructor
+@AllArgsConstructor
 public class InputProvider {
 
-    private static InputProvider instance;
+    @Autowired
     private Scanner scanner;
-
-    private InputProvider() {
-        scanner = new Scanner(System.in);
-    }
-
-    public static InputProvider getInstance() {
-        if (instance == null) {
-            synchronized (InputProvider.class) {
-                if (instance == null) {
-                    instance = new InputProvider();
-                }
-            }
-        }
-        return instance;
-    }
 
     @SuppressWarnings("unchecked")
     public <E extends TypeEnum> E readStringForEnum(Class clazz) {

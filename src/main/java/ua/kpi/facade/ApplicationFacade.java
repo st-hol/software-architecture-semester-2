@@ -1,27 +1,25 @@
 package ua.kpi.facade;
 
-import static ua.kpi.ui.TextConstants.ASK_OPTION;
-import static ua.kpi.ui.TextConstants.RESULT;
-import static ua.kpi.ui.TextConstants.SHOW_OPTION;
-import static ua.kpi.ui.TextConstants.WELCOME;
-
-import java.util.List;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ua.kpi.command.Command;
 import ua.kpi.command.operations.ExitCommand;
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.factory.OperationRequestFactory;
-import ua.kpi.factory.OperationRequestFactoryImpl;
 import ua.kpi.flyweight.OperationRequest;
 import ua.kpi.service.ApplicationService;
 import ua.kpi.service.CalculationService;
-import ua.kpi.service.impl.ApplicationServiceImpl;
-import ua.kpi.service.impl.CalculationServiceImpl;
 import ua.kpi.type.ActionCode;
 import ua.kpi.ui.util.ApplicationView;
 import ua.kpi.ui.util.InputProvider;
 
+import java.util.List;
+import java.util.Map;
+
+import static ua.kpi.ui.TextConstants.*;
+
+
+@Component
 public class ApplicationFacade {
 
     private ApplicationView applicationView;
@@ -30,25 +28,15 @@ public class ApplicationFacade {
     private ApplicationService applicationService;
     private OperationRequestFactory operationRequestFactory;
 
-    private static ApplicationFacade instance;
-
-    private ApplicationFacade() {
-        this.applicationView = ApplicationView.getInstance();
-        this.inputProvider = InputProvider.getInstance();
-        this.calculationService = CalculationServiceImpl.getInstance();
-        this.applicationService = ApplicationServiceImpl.getInstance();
-        this.operationRequestFactory = new OperationRequestFactoryImpl();
-    }
-
-    public static ApplicationFacade getInstance() {
-        if (instance == null) {
-            synchronized (ApplicationFacade.class) {
-                if (instance == null) {
-                    instance = new ApplicationFacade();
-                }
-            }
-        }
-        return instance;
+    @Autowired
+    public ApplicationFacade(ApplicationView applicationView, InputProvider inputProvider,
+                             CalculationService calculationService, ApplicationService applicationService,
+                             OperationRequestFactory operationRequestFactory) {
+        this.applicationView = applicationView;
+        this.inputProvider = inputProvider;
+        this.calculationService = calculationService;
+        this.applicationService = applicationService;
+        this.operationRequestFactory = operationRequestFactory;
     }
 
     public void process(Map<ActionCode, Command> commands) {

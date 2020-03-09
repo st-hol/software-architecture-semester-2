@@ -1,22 +1,8 @@
 package ua.kpi.service.impl;
 
+import org.springframework.stereotype.Service;
 import ua.kpi.service.ApplicationService;
 
+@Service
 public class ApplicationServiceImpl implements ApplicationService {
-
-    private static ApplicationServiceImpl instance;
-
-    private ApplicationServiceImpl() {
-    }
-
-    public static ApplicationServiceImpl getInstance() {
-        if (instance == null) {
-            synchronized (ApplicationServiceImpl.class) {
-                if (instance == null) {
-                    instance = new ApplicationServiceImpl();
-                }
-            }
-        }
-        return instance;
-    }
 }

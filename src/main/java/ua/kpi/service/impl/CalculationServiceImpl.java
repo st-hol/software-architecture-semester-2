@@ -1,35 +1,19 @@
 package ua.kpi.service.impl;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
+import org.springframework.stereotype.Service;
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.exception.CalculationException;
 import ua.kpi.service.CalculationService;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+@Service
 public class CalculationServiceImpl implements CalculationService {
 
     private static final int SCALE_FOR_RESULT = 3;
     private static final int SCALE_FOR_SQRT = 10001;
     private static final String NEGATIVE_VALUE_FOR_SQRT = "NEGATIVE_VALUE_FOR_SQRT";
-
-    private static CalculationServiceImpl instance;
-
-
-    private CalculationServiceImpl() {
-
-    }
-
-    public static CalculationServiceImpl getInstance() {
-        if (instance == null) {
-            synchronized (CalculationServiceImpl.class) {
-                if (instance == null) {
-                    instance = new CalculationServiceImpl();
-                }
-            }
-        }
-        return instance;
-    }
 
     @Override
     public String calculateExpForm(ComplexNumber original) {

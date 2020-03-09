@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Home</title>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar">&nbsp;</div>
+<div class="row col-lg-7">
+    <div th:text="#{login.header.welcome}"></div>
+    <div th:text="#{login.header.description}"></div>
+</div>
+</body>
+</html>

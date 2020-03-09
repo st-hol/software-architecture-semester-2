@@ -1,15 +1,17 @@
 package ua.kpi.factory;
 
-import java.util.List;
-
 import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Component;
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.exception.UnrecognizedRequestException;
 import ua.kpi.flyweight.OperationRequest;
 import ua.kpi.flyweight.SingleOperandRequest;
 import ua.kpi.flyweight.TwoOperandRequest;
 
+import java.util.List;
+
 @Log4j2
+@Component
 public class OperationRequestFactoryImpl extends OperationRequestFactory {
     private static final String NOT_EXIST_MESSAGE = "There are no request for your args";
 

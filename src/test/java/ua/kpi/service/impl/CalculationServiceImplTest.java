@@ -1,6 +1,7 @@
 package ua.kpi.service.impl;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.exception.CalculationException;
 
@@ -11,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class CalculationServiceImplTest {
 
-    private CalculationServiceImpl calculationService = CalculationServiceImpl.getInstance();
+    @InjectMocks
+    private CalculationServiceImpl calculationService;
 
     @Test
     void calculateExpForm() {

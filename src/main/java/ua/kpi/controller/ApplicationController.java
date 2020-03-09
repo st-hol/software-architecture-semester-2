@@ -1,8 +1,7 @@
 package ua.kpi.controller;
 
-import java.util.EnumMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ua.kpi.command.Command;
 import ua.kpi.command.operations.AbsCommand;
 import ua.kpi.command.operations.AddCommand;
@@ -10,37 +9,30 @@ import ua.kpi.command.operations.MultiplyCommand;
 import ua.kpi.facade.ApplicationFacade;
 import ua.kpi.type.ActionCode;
 
+import java.util.EnumMap;
+import java.util.Map;
 
+
+@Component
 public class ApplicationController {
+
+    @Autowired
+    private ApplicationFacade applicationFacade;
 
     private Map<ActionCode, Command> commands = new EnumMap<>(ActionCode.class);
 
-    private static ApplicationController instance;
-    private ApplicationFacade applicationFacade;
+    @Autowired
+    public ApplicationController(ApplicationFacade applicationFacade,
+                                 AddCommand addCommand, AbsCommand absCommand, MultiplyCommand multiplyCommand) {
 
-    private ApplicationController() {
-        applicationFacade = ApplicationFacade.getInstance();
-    }
+        this.applicationFacade = applicationFacade;
 
-    public static ApplicationController getInstance() {
-        if (instance == null) {
-            synchronized (ApplicationController.class) {
-                if (instance == null) {
-                    instance = new ApplicationController();
-                }
-            }
-        }
-        return instance;
-    }
-
-    private void initCommands(){
-        commands.put(ActionCode.ABS, new AbsCommand());
-        commands.put(ActionCode.ADD, new AddCommand());
-        commands.put(ActionCode.MUL, new MultiplyCommand());
+        commands.put(ActionCode.ABS, absCommand);
+        commands.put(ActionCode.ADD, addCommand);
+        commands.put(ActionCode.MUL, multiplyCommand);
     }
 
     public void processActionControl(){
-        initCommands();
         applicationFacade.process(commands);
     }
 
