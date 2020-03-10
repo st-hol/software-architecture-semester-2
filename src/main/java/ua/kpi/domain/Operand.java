@@ -1,10 +1,18 @@
 package ua.kpi.domain;
 
 
+import java.math.BigDecimal;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
 
 
 @Entity
@@ -16,9 +24,14 @@ public class Operand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String complexNumberValue;
+    private BigDecimal r;
+
+    private BigDecimal i;
 
     @ManyToOne
-    private UserActionHistory userActionHistory;
+    private CalculationRequest calculationRequest;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private CalculationResult calculationResult;
 
 }

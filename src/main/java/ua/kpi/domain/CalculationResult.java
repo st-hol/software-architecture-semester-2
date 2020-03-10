@@ -5,13 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "result")
 @Setter
 @Getter
 public class CalculationResult {
@@ -20,8 +18,9 @@ public class CalculationResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String value;
+    @OneToOne(mappedBy = "calculationResult")
+    private Operand operand;
 
-    @OneToOne
-    protected UserActionHistory userActionHistory;
+    @OneToOne(mappedBy = "calculationResult")
+    private CalculationRequest calculationRequest;
 }
