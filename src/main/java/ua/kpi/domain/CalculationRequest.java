@@ -27,8 +27,8 @@ public class CalculationRequest {
     private ActionCode actionCode;
 
     @OneToMany(mappedBy = "calculationRequest", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Operand> operands;
+    private List<ComplexNumber> complexNumbers;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "complexNumber")
     private CalculationResult calculationResult;
 }

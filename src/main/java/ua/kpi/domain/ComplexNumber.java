@@ -3,7 +3,6 @@ package ua.kpi.domain;
 
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Operand {
+public class ComplexNumber {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +30,7 @@ public class Operand {
     @ManyToOne
     private CalculationRequest calculationRequest;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "complexNumber")
     private CalculationResult calculationResult;
 
 }

@@ -1,5 +1,6 @@
 package ua.kpi.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +19,9 @@ public class CalculationResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne(mappedBy = "calculationResult")
-    private Operand operand;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ComplexNumber complexNumber;
 
-    @OneToOne(mappedBy = "calculationResult")
+    @OneToOne(cascade = CascadeType.ALL)
     private CalculationRequest calculationRequest;
 }
