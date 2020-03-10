@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import ua.kpi.command.Command;
 import ua.kpi.domain.CalculationRequest;
-import ua.kpi.entity.impl.ComplexNumber;
+import ua.kpi.domain.ComplexNumber;
 import ua.kpi.service.CalculationService;
 
 @Component

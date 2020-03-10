@@ -11,12 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class ComplexNumber {
 
     @Id
@@ -33,4 +35,8 @@ public class ComplexNumber {
     @OneToOne(mappedBy = "complexNumber")
     private CalculationResult calculationResult;
 
+    public ComplexNumber(BigDecimal r, BigDecimal i) {
+        this.r = r;
+        this.i = i;
+    }
 }

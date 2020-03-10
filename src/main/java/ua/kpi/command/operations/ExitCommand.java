@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import ua.kpi.command.Command;
 import ua.kpi.domain.CalculationRequest;
-import ua.kpi.entity.impl.ComplexNumber;
+import ua.kpi.domain.ComplexNumber;
 
 @Component
 public class ExitCommand implements Command {

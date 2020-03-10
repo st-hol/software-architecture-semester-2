@@ -1,14 +1,15 @@
 package ua.kpi.service.impl;
 
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import ua.kpi.entity.impl.ComplexNumber;
-import ua.kpi.exception.CalculationException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+
+import ua.kpi.domain.ComplexNumber;
+import ua.kpi.exception.CalculationException;
 
 class CalculationServiceImplTest {
 

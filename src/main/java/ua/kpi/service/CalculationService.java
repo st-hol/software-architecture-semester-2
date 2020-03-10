@@ -1,6 +1,7 @@
 package ua.kpi.service;
 
-import ua.kpi.entity.impl.ComplexNumber;
+
+import ua.kpi.domain.ComplexNumber;
 import ua.kpi.exception.CalculationException;
 
 public interface CalculationService {

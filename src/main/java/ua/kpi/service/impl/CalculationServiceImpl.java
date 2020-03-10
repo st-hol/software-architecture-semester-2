@@ -1,12 +1,13 @@
 package ua.kpi.service.impl;
 
-import org.springframework.stereotype.Service;
-import ua.kpi.entity.impl.ComplexNumber;
-import ua.kpi.exception.CalculationException;
-import ua.kpi.service.CalculationService;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
+import org.springframework.stereotype.Service;
+
+import ua.kpi.domain.ComplexNumber;
+import ua.kpi.exception.CalculationException;
+import ua.kpi.service.CalculationService;
 
 @Service
 public class CalculationServiceImpl implements CalculationService {

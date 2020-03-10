@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import lombok.extern.log4j.Log4j2;
 import ua.kpi.command.Command;
 import ua.kpi.domain.CalculationRequest;
-import ua.kpi.entity.impl.ComplexNumber;
+import ua.kpi.domain.ComplexNumber;
 import ua.kpi.exception.CalculationException;
 import ua.kpi.service.CalculationService;
 
