@@ -1,6 +1,5 @@
 package ua.kpi.entity.impl;
 
-import ua.kpi.meta.MethodAnnotation;
 
 import java.math.BigDecimal;
 
@@ -19,7 +18,6 @@ public class ComplexNumberWithExp extends ComplexNumber {
     }
 
     @Deprecated
-    @MethodAnnotation(canBeInvoked = true)
     public String calcExponentialForm() {
         return String.format("cos (%s) + i sin (%s) = e^i*(%s)", fi, fi, fi);
     }
