@@ -24,4 +24,6 @@ public class CalculationResult {
 
     @OneToOne(cascade = CascadeType.ALL)
     private CalculationRequest calculationRequest;
+
+    private String comment;
 }

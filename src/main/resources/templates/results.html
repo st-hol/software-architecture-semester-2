@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Wagers</title>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
+<div th:replace="fragments/navbar :: navbar">&nbsp;</div>
+
+<div class="container border border-primary rounded mt-2">
+    <div class="row bg-primary">
+        <h6 class="text-center text-light font-weight-normal p-2 pl-4" th:text="#{calc.results}"></h6>
+    </div>
+
+    <table class="w-100">
+        <tr>
+            <th></th>
+            <th th:text="#{index}"></th>
+            <th th:text="#{complex.number}"></th>
+            <th th:text="#{actionCode}"></th>
+            <th th:text="#{comment}"></th>
+        </tr>
+        <th:block th:each="result : ${results}">
+            <tr>
+                <td>
+                    <form id="removeForm" method="post" th:action="@{/results/{resultId}(resultId=${result.id})}">
+                        <input name="_method" type="hidden" value="DELETE">
+                        <input name="id" th:value="${result.id}" type="hidden"/>
+                        <input class="border border-primary rounded bg-primary text-light" th:value="#{form.remove}"
+                               type="submit">
+                    </form>
+                </td>
+
+                <td th:text="${result.id}">index</td>
+                <td th:text="${result.complexNumber}"></td>
+                <td th:text="${result.calculationRequest.actionCode}"></td>
+                <td>
+                    <form id="editForm" method="post" th:action="@{/results/{resultId}(resultId=${result.id})}">
+                        <input name="_method" type="hidden" value="PUT">
+                        <input name="id" th:value="${result.id}" type="hidden"/>
+                        <input name="comment" th:text="${result.comment}" type="text"/>
+                        <input class="border border-primary rounded bg-primary text-light" th:value="#{form.edit}"
+                               type="submit">
+                    </form>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Please sign in</title>
+    <link href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
+<div th:replace="fragments/navbar :: navbar">&nbsp;</div>
+<div class="container">
+    <div class="login-page col-lg-4 col-md-7">
+        <ul>
+            <li th:class="${e.global}? globalerr : fielderr" th:each="e : ${#fields.detailedErrors()}">
+                <span th:text="${e.global}? '*' : ${e.fieldName}">The field name</span> |
+                <span th:text="${e.message}">The error message</span>
+            </li>
+        </ul>
+
+        <form action="#" class="form-signin" method="post" th:action="@{/player/add}" th:object="${form}">
+
+            <div class="card">
+                FIRST OPERAND:
+                <div class="card-body">
+                    <p class="card-text" th:text="#{form.r}"></p>
+                    <input name="r1" placeholder="r"/>
+
+                    <p class="card-text" th:text="#{form.i}"></p>
+                    <input name="i1" placeholder="i"/>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+            <div class="card">
+                SECOND OPERAND:
+                <div class="card-body">
+                    <p class="card-text" th:text="#{form.r}"></p>
+                    <input class="second-cn" name="r2" placeholder="r"/>
+
+                    <p class="card-text" th:text="#{form.i}"></p>
+                    <input class="second-cn" name="i2" placeholder="i"/>
+                </div>
+            </div>
+
+            <div class="input-group form-group">
+                <select class="form-control currency-selector" name="actionTaken" required>
+                    <option selected>Abs</option>
+                    <option>Add</option>
+                    <option>Mul</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" th:text="#{form.submit}" type="submit"></button>
+
+        </form>
+
+        <div class="change-view form-group">
+            <a th:href="@{'/home'}" th:text="#{go.to.home}"></a>
+        </div>
+
+    </div>
+</div>
+<script>
+    $("select").change(function () {
+        if ($(this).val() == "Abs") {
+            $(".second-cn").attr("disabled", "disabled");
+        } else {
+            $(".second-cn").removeAttr("disabled");
+        }
+    }).trigger("change");
+</script>
+</body>
+</html>

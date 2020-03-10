@@ -9,10 +9,9 @@
     <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
 <div th:replace="fragments/navbar :: navbar">&nbsp;</div>
 <div class="row col-lg-7">
-    <div th:text="#{login.header.welcome}"></div>
-    <div th:text="#{login.header.description}"></div>
 </div>
 </body>
 </html>

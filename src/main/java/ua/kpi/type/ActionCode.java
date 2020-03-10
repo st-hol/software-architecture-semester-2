@@ -17,12 +17,6 @@ public enum ActionCode implements StringTypeEnum {
         this.noOfOperands = noOfOperands;
     }
 
-    /**
-     * default - EN
-     *
-     * @param value
-     * @return
-     */
     public static ActionCode fromValue(String value) {
         return Stream.of(values()).filter(v -> v.getValue().equals(value)).findFirst().orElse(null);
     }

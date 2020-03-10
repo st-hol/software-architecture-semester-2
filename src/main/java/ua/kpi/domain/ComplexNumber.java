@@ -39,4 +39,9 @@ public class ComplexNumber {
         this.r = r;
         this.i = i;
     }
+
+    @Override
+    public String toString() {
+        return this.getR() + "+" + this.getI() + "i";
+    }
 }
