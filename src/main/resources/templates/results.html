@@ -43,7 +43,7 @@
                     <form id="editForm" method="post" th:action="@{/results/{resultId}(resultId=${result.id})}">
                         <input name="_method" type="hidden" value="PUT">
                         <input name="id" th:value="${result.id}" type="hidden"/>
-                        <input name="comment" th:text="${result.comment}" type="text"/>
+                        <input name="comment" th:placeholder="${result.comment}" type="text"/>
                         <input class="border border-primary rounded bg-primary text-light" th:value="#{form.edit}"
                                type="submit">
                     </form>

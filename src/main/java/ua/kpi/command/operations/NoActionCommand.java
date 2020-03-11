@@ -7,7 +7,7 @@ import ua.kpi.domain.CalculationRequest;
 import ua.kpi.domain.ComplexNumber;
 
 @Component
-public class ExitCommand implements Command {
+public class NoActionCommand implements Command {
     @Override
     public ComplexNumber execute(CalculationRequest calculationRequest) {
         return null;

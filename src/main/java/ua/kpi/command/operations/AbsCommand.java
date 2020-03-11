@@ -19,7 +19,7 @@ public class AbsCommand implements Command {
 
     @Override
     public ComplexNumber execute(CalculationRequest calculationRequest) {
-        ComplexNumber operand = null;
+        ComplexNumber operand = calculationRequest.getComplexNumbers().get(0);
         ComplexNumber result = new ComplexNumber();
         try {
             result = calculationService.abs(operand);

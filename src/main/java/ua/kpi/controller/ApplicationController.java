@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import ua.kpi.domain.CalculationResult;
 import ua.kpi.dto.TwoOperandsDto;
@@ -31,10 +30,11 @@ public class ApplicationController {
 
     @PutMapping("/results/{id}")
     @SuppressWarnings("squid:S4684")
-    public String updateNote(@RequestParam CalculationResult calculationResult,
+    public String updateNote(@ModelAttribute CalculationResult calculationResult,
                              @PathVariable Long id) {
-        calculationResult.setId(id);
-        applicationFacade.updateResult(calculationResult);
+        CalculationResult entity = applicationFacade.populateResultById(id);
+        entity.setComment(calculationResult.getComment());
+        applicationFacade.updateResult(entity);
         return REDIRECT_RESULTS;
     }
 
@@ -58,7 +58,7 @@ public class ApplicationController {
 
     @PostMapping("/results")
     public String calcResult(@ModelAttribute("form") TwoOperandsDto form) {
-        //todo command
+        applicationFacade.calculateResult(form);
         return REDIRECT_RESULTS;
     }
 

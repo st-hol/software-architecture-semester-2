@@ -16,8 +16,8 @@ public class AddCommand implements Command {
 
     @Override
     public ComplexNumber execute(CalculationRequest calculationRequest) {
-        ComplexNumber firstOperand = null;
-        ComplexNumber secondOperand = null;
+        ComplexNumber firstOperand = calculationRequest.getComplexNumbers().get(0);
+        ComplexNumber secondOperand = calculationRequest.getComplexNumbers().get(1);
         return calculationService.add(firstOperand, secondOperand);
     }
 }
