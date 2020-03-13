@@ -1,12 +1,12 @@
 # LABS at KPI university course.
 
-Branches:
+___Branches:
 
-"master branch": labs 1-4
+# "master branch": labs 1-4
 
-"db": lab 5
+# "db": lab 5
 
-"spring-di": lab 6
+# "spring-di": lab 6
 
-"rewritten-to-spring-WEB-crud-app": lab 7
+# "rewritten-to-spring-WEB-crud-app": lab 7
 
