@@ -1,6 +1,6 @@
 # LABS at KPI university course.
 
-__Branches:
+## Branches:
 
 ### "master branch": labs 1-4
 
