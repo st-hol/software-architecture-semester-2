@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import ua.kpi.entity.impl.ComplexNumber;
-import ua.kpi.flyweight.TwoOperandRequest;
+import ua.kpi.payload.TwoOperandRequest;
 import ua.kpi.service.impl.CalculationServiceImpl;
 
 class AddCommandTest {

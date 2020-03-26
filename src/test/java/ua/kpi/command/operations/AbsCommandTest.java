@@ -13,7 +13,7 @@ import org.mockito.MockitoAnnotations;
 
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.exception.CalculationException;
-import ua.kpi.flyweight.SingleOperandRequest;
+import ua.kpi.payload.SingleOperandRequest;
 import ua.kpi.service.impl.CalculationServiceImpl;
 
 

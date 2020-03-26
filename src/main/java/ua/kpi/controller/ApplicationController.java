@@ -1,16 +1,17 @@
 package ua.kpi.controller;
 
+import java.util.EnumMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import ua.kpi.command.Command;
 import ua.kpi.command.operations.AbsCommand;
 import ua.kpi.command.operations.AddCommand;
 import ua.kpi.command.operations.MultiplyCommand;
 import ua.kpi.facade.ApplicationFacade;
 import ua.kpi.type.ActionCode;
-
-import java.util.EnumMap;
-import java.util.Map;
 
 
 @Component
@@ -36,11 +37,4 @@ public class ApplicationController {
         applicationFacade.process(commands);
     }
 
-    public Map<ActionCode, Command> getCommands() {
-        return commands;
-    }
-
-    public void setApplicationFacade(ApplicationFacade applicationFacade) {
-        this.applicationFacade = applicationFacade;
-    }
 }

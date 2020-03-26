@@ -1,4 +1,4 @@
-package ua.kpi.flyweight;
+package ua.kpi.payload;
 
 import java.util.List;
 

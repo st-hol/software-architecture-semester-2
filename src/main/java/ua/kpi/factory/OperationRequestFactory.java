@@ -1,9 +1,9 @@
 package ua.kpi.factory;
 
-import ua.kpi.entity.impl.ComplexNumber;
-import ua.kpi.flyweight.OperationRequest;
-
 import java.util.List;
+
+import ua.kpi.entity.impl.ComplexNumber;
+import ua.kpi.payload.OperationRequest;
 
 public abstract class OperationRequestFactory {
 

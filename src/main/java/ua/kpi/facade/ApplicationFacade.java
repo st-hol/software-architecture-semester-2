@@ -1,22 +1,26 @@
 package ua.kpi.facade;
 
+import static ua.kpi.ui.TextConstants.ASK_OPTION;
+import static ua.kpi.ui.TextConstants.RESULT;
+import static ua.kpi.ui.TextConstants.SHOW_OPTION;
+import static ua.kpi.ui.TextConstants.WELCOME;
+
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import ua.kpi.command.Command;
 import ua.kpi.command.operations.ExitCommand;
 import ua.kpi.entity.impl.ComplexNumber;
 import ua.kpi.factory.OperationRequestFactory;
-import ua.kpi.flyweight.OperationRequest;
+import ua.kpi.payload.OperationRequest;
 import ua.kpi.service.ApplicationService;
 import ua.kpi.service.CalculationService;
 import ua.kpi.type.ActionCode;
 import ua.kpi.ui.util.ApplicationView;
 import ua.kpi.ui.util.InputProvider;
-
-import java.util.List;
-import java.util.Map;
-
-import static ua.kpi.ui.TextConstants.*;
 
 
 @Component
